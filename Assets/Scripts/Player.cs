@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
         foreach (var segment in _tails)
         {
-            if((segment.position - previousPosition).sqrMagnitude > sqrDistance)
+            if ((segment.position - previousPosition).sqrMagnitude > sqrDistance)
             {
                 Vector3 currentSegmentPosition = segment.position;
                 segment.position = previousPosition;
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Eat eat))
+        if (other.TryGetComponent(out Eat eat))
         {
             Destroy(other.gameObject);
 
@@ -48,5 +48,45 @@ public class Player : MonoBehaviour
             _tails.Add(segment.transform);
 
         }
+
+        if (other.TryGetComponent(out CubeBarrier cube))
+        {
+            if (cube.Value < _tails.Count)
+            {
+                for (int i = 0; i < _tails.Count; i++)
+                {
+                    _tails.Remove(_tails[0]);
+                    Debug.Log("DeleteSegment");
+                    cube.Value -= 1;
+                    Debug.Log("deleteValue");
+                }
+
+            }
+            if (cube.Value <= 0)
+            {
+                Destroy(cube.gameObject);
+            }
+
+            if (cube.Value > _tails.Count)
+            {
+                for(int i = 0; i < _tails.Count; i++)
+                {
+                    _tails.Remove(_tails[0]);
+                    cube.Value -= 1;
+                }
+
+               
+            }
+            if (_tails.Count < 0)
+            {
+                Debug.Log("Dead");
+                Destroy(this.gameObject);
+                
+            }
+
+
+        }
     }
+
+
 }

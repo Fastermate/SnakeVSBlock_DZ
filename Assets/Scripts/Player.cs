@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         if (other.TryGetComponent(out Eat eat))
         {
-            Destroy(other.gameObject);
+            Destroy(eat.gameObject);
 
             GameObject segment = Instantiate(_segmentPrefab);
             _tails.Add(segment.transform);
@@ -69,18 +69,29 @@ public class Player : MonoBehaviour
 
             if (cube.Value > _tails.Count)
             {
-                for(int i = 0; i < _tails.Count; i++)
+                while(_tails.Count != 0)
                 {
                     _tails.Remove(_tails[0]);
+                    Destroy(GameObject.Find("Segment(Clone)"));
+                    
                     cube.Value -= 1;
+                    
+                    
+                    
+
+                    if(_tails.Count == 0)
+                    {
+                        break;
+                    }
                 }
 
                
             }
-            if (_tails.Count < 0)
+            if (_tails.Count <= 0)
             {
                 Debug.Log("Dead");
-                Destroy(this.gameObject);
+                //Destroy(gameObject);
+                
                 
             }
 

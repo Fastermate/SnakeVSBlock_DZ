@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
-    public void Kill()
-    {
-        Destroy(gameObject);
-    }
 }

@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private List<Transform> _tails;
+    [SerializeField] private List<GameObject> _segments;
     [SerializeField] private float _segmentDistanse;
     [SerializeField] private GameObject _segmentPrefab;
     [SerializeField] private Rigidbody _rigidbody;
@@ -38,6 +40,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Damage()
+    {
+        _tails.Remove(_tails[0]);
+        Destroy(_segments[0]);
+        _segments.Remove(_segments[0]);
+    }
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Eat eat))
@@ -46,6 +57,7 @@ public class Player : MonoBehaviour
 
             GameObject segment = Instantiate(_segmentPrefab);
             _tails.Add(segment.transform);
+            _segments.Add(segment);
 
         }
 
@@ -55,10 +67,8 @@ public class Player : MonoBehaviour
             {
                 for (int i = 0; i < _tails.Count; i++)
                 {
-                    _tails.Remove(_tails[0]);
-                    Debug.Log("DeleteSegment");
-                    cube.Value -= 1;
-                    Debug.Log("deleteValue");
+                    Damage();
+                    cube.Value--;
                 }
 
             }
@@ -69,35 +79,30 @@ public class Player : MonoBehaviour
 
             if (cube.Value > _tails.Count)
             {
-                while(_tails.Count != 0)
+                for(int i = 0; i < cube.Value; i++)
                 {
-                    _tails.Remove(_tails[0]);
-                    Destroy(GameObject.Find("Segment(Clone)"));
-                    
-                    cube.Value -= 1;
+                    Damage();
+                    cube.Value--;
                     
                     
-                    
-
-                    if(_tails.Count == 0)
+                    if (_tails.Count == 0)
                     {
                         break;
                     }
                 }
-
-               
             }
+
             if (_tails.Count <= 0)
             {
                 Debug.Log("Dead");
-                //Destroy(gameObject);
-                
-                
+                Destroy(gameObject);
             }
 
 
         }
     }
+
+    
 
 
 }

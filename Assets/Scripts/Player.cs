@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,6 +11,20 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private SurfaceSlider _surfaceSlider;
     [SerializeField] private float _speed;
+    [SerializeField] private GameController _controller;
+    [SerializeField] private TextMeshPro _snakeScore;
+
+    private void Start()
+    {
+        GameObject segment = Instantiate(_segmentPrefab);
+        _tails.Add(segment.transform);
+        _segments.Add(segment);
+    }
+
+    private void Update()
+    {
+        _snakeScore.SetText(_tails.Count.ToString());
+    }
 
     public void MoveHead(Vector3 direction)
     {
@@ -27,7 +41,7 @@ public class Player : MonoBehaviour
 
         foreach (var segment in _tails)
         {
-            if ((segment.position - previousPosition).sqrMagnitude > sqrDistance)
+            if ((segment.position - previousPosition.normalized).sqrMagnitude > sqrDistance)
             {
                 Vector3 currentSegmentPosition = segment.position;
                 segment.position = previousPosition;
@@ -65,44 +79,58 @@ public class Player : MonoBehaviour
         {
             if (cube.Value < _tails.Count)
             {
-                for (int i = 0; i < _tails.Count; i++)
+                do
                 {
-                    Damage();
                     cube.Value--;
+                    Damage();
                 }
+                while (cube.Value != 0);
 
+            }
+            
+
+            if (cube.Value > _tails.Count)
+            {
+                do
+                {
+                    cube.Value--;
+                    Damage();
+                }
+                while (_tails.Count != 0);
+            }
+
+            if(cube.Value == _tails.Count)
+            {
+                do
+                {
+                    cube.Value--;
+                    Damage();
+                }
+                while(_tails.Count != 0);
+            }
+
+            if (_tails.Count <= 0)
+            {
+                Die();
             }
             if (cube.Value <= 0)
             {
                 Destroy(cube.gameObject);
             }
 
-            if (cube.Value > _tails.Count)
-            {
-                for(int i = 0; i < cube.Value; i++)
-                {
-                    Damage();
-                    cube.Value--;
-                    
-                    
-                    if (_tails.Count == 0)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            if (_tails.Count <= 0)
-            {
-                Debug.Log("Dead");
-                Destroy(gameObject);
-            }
-
 
         }
     }
 
-    
-
-
+    public void Die()
+    {
+        _controller.OnPlayerDied();
+        _rigidbody.velocity = Vector3.zero;
+        Destroy(gameObject);
+    }
+    public void ReachFinish()
+    {
+        _controller.OnPlayerReachedFinish();
+        
+    }
 }

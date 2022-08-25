@@ -800,6 +800,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 3556765983815336455, guid: f91a896ad1b9ecd498cb0ef263ad1e3e,
+        type: 3}
+      propertyPath: ValueGameObjectPrefab
+      value: 
+      objectReference: {fileID: 7242952228258569294, guid: 5c3f63ee8e85afb4ebe4811ae6bbc6e6,
+        type: 3}
     - target: {fileID: 7535830392103530937, guid: f91a896ad1b9ecd498cb0ef263ad1e3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1106,6 +1112,7 @@ MonoBehaviour:
   _speed: 10
   _controller: {fileID: 383071899}
   _snakeScore: {fileID: 1344148247}
+  _delayBetweenFragments: 0.5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

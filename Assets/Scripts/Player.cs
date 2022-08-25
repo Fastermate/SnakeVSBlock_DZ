@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private GameController _controller;
     [SerializeField] private TextMeshPro _snakeScore;
+    [SerializeField]private float _delayBetweenFragments;
 
     private void Start()
     {
@@ -54,10 +55,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Damage()
+    private void Damage(float delay)
     {
+        
         _tails.Remove(_tails[0]);
-        Destroy(_segments[0]);
+        Destroy(_segments[0], delay);
         _segments.Remove(_segments[0]);
     }
 
@@ -77,37 +79,16 @@ public class Player : MonoBehaviour
 
         if (other.TryGetComponent(out CubeBarrier cube))
         {
-            if (cube.Value < _tails.Count)
-            {
-                do
-                {
-                    cube.Value--;
-                    Damage();
-                }
-                while (cube.Value != 0);
+            float delay = 0;
 
-            }
-            
-
-            if (cube.Value > _tails.Count)
+            do
             {
-                do
-                {
-                    cube.Value--;
-                    Damage();
-                }
-                while (_tails.Count != 0);
+                cube.Value--;
+                Damage(delay);
+                delay += _delayBetweenFragments;
+                    
             }
-
-            if(cube.Value == _tails.Count)
-            {
-                do
-                {
-                    cube.Value--;
-                    Damage();
-                }
-                while(_tails.Count != 0);
-            }
+            while (cube.Value != 0 && _tails.Count !=0);
 
             if (_tails.Count <= 0)
             {

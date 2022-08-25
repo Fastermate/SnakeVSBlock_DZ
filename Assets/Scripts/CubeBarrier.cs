@@ -18,7 +18,5 @@ public class CubeBarrier : MonoBehaviour
     private void Awake()
     {
         rend = GetComponent<Renderer>();
-        
-        
     }
 }

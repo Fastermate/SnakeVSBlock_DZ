@@ -114,9 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Value: 16
   ValueText: {fileID: 4909880593918970678}
-  ValueGameObjectPrefab: {fileID: 7242952228258569294, guid: 5c3f63ee8e85afb4ebe4811ae6bbc6e6,
-    type: 3}
-  _value: []
 --- !u!65 &933642693300085214
 BoxCollider:
   m_ObjectHideFlags: 0

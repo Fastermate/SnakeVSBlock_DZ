@@ -14,9 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private GameController _controller;
     [SerializeField] private TextMeshPro _snakeScore;
-    [SerializeField] private float _delayBetweenFragments;
+    
 
-    [SerializeField] bool _isBusy = false;
+    
 
     private void Start()
     {
@@ -86,22 +86,17 @@ public class Player : MonoBehaviour
 
         if (other.TryGetComponent(out CubeBarrier cube))
         {
-            if (!_isBusy)
+            StartCoroutine(DamageTimer());
+
+            IEnumerator DamageTimer()
             {
-                StartCoroutine(Wait());
-            }
-            else StopCoroutine(Wait());
-            IEnumerator Wait()
-            {
-                _isBusy = true;
                 do
                 {
                     cube.Value--;
                     Damage();
                     yield return new WaitForSeconds(0.1f);
-                    
                 }
-                while (cube.Value != 0 && _tails.Count != 0);
+                while(cube.Value != 0 && _tails.Count != 0);
                 if (_tails.Count <= 0)
                 {
                     Die();
@@ -110,9 +105,9 @@ public class Player : MonoBehaviour
                 {
                     Destroy(cube.gameObject);
                 }
-
-                _isBusy = false;
+                StopAllCoroutines();
             }
+            
         }
     }
 

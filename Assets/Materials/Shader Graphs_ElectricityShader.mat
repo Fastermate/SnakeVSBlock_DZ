@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_ElectricityShader
-  m_Shader: {fileID: -6465566751694194690, guid: 55861a1a85dc2d34ebd81aaa7334e397,
+  m_Shader: {fileID: -6465566751694194690, guid: 7a01d8a2958e94f43a7eece8e76090e7,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

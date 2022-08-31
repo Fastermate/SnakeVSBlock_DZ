@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b463148ac1c0ab4c8b34b5d39ca2c28, type: 2}
+  - {fileID: 2100000, guid: ecf2c64029c825a47b792d784547bb79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1966740175943747762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0b1e35e9ad94746850e6528936e979, type: 3}
+  m_Script: {fileID: 11500000, guid: 82fd661ad4b5519488730f5e1ac0974c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 16
+  Value: 5
   ValueText: {fileID: 4909880593918970678}
 --- !u!65 &933642693300085214
 BoxCollider:
@@ -185,7 +185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 28e7476794aaa054b88cf92f695860ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1111
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28e7476794aaa054b88cf92f695860ba, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 28e7476794aaa054b88cf92f695860ba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

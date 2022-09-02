@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class ProgressBarUI : MonoBehaviour
 {
     [SerializeField] private Image _uiFillImage;
-    [SerializeField] private TMP_Text _uiStartText;
-    [SerializeField] private TMP_Text _uiFinishText;
+    [SerializeField] public TMP_Text _uiStartText;
+    [SerializeField] public TMP_Text _uiFinishText;
 
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Transform _finishTransform;

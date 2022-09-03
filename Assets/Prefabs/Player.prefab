@@ -344,7 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tails: []
   _segments: []
-  _segmentDistanse: 1
+  _segmentDistanse: 0.5
   _segmentPrefab: {fileID: 2721809608235372944, guid: 75b19ee7f9becb14fa14123b103d4fb7,
     type: 3}
   _rigidbody: {fileID: 8521611669405726368}

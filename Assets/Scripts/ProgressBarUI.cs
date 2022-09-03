@@ -16,6 +16,11 @@ public class ProgressBarUI : MonoBehaviour
 
     private float _fullDistance;
 
+    private void Awake()
+    {
+        SetLevelTexts(PlayerPrefs.GetInt("LevelIndex", 0));
+    }
+
     private void Start()
     {
         _finishPosition = _finishTransform.position;
@@ -40,6 +45,7 @@ public class ProgressBarUI : MonoBehaviour
 
     private void Update()
     {
+        if (_playerTransform == null) return;
         float newDistance = GetDistance();
         float progressValue = Mathf.InverseLerp(_fullDistance, 0f, newDistance);
         UpdateProgressFill(progressValue);

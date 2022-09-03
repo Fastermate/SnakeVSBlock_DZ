@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
         if (CurrentState != State.Playing) return;
         CurrentState = State.Loss;
         _keyboardInput.enabled = false;
+        
         Debug.Log("Game Over!");
     }
 
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
     {
         if (CurrentState != State.Playing) return;
         CurrentState = State.Won;
+        
         _keyboardInput.enabled = false;
         Debug.Log("You Won!");
     }

@@ -15,21 +15,21 @@ public class LevelManager : MonoBehaviour
     {
         _currentLevelIndex = _saveLoadSystem.GetLevelIndex();
         _currentLevelIndex %= _levelsList.Levels.Length;
-        Instantiate(_levelsList.Levels[_currentLevelIndex]);
-        
-        
+
     }
-    
 
-    private void Update()
+
+    public void ButtonStart()
     {
-        
+        Instantiate(_levelsList.Levels[_currentLevelIndex]);
+        _canvas.enabled = false;
+    }
 
 
-        //if (PlayerPrefs.GetInt("PlayerSate") == 1)
-        //{
-        //    LoadNextLevel();
-        //}
+    public void ButtonRestart()
+    {
+        _saveLoadSystem.SaveLevel(_currentLevelIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
 

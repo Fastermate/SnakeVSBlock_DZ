@@ -4650,8 +4650,30 @@ PrefabInstance:
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 7408559562233430456}
+    - target: {fileID: 2916883224824922397, guid: 9d7c7649384df054eb4706940560ebbb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548354655288554242, guid: 9d7c7649384df054eb4706940560ebbb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d7c7649384df054eb4706940560ebbb, type: 3}
+--- !u!223 &3111250564680969998 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 169159150028951390, guid: 9d7c7649384df054eb4706940560ebbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987461870932287568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &7316712873704198994 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5548354655288554242, guid: 9d7c7649384df054eb4706940560ebbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987461870932287568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2998242577431946073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6978,6 +7000,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2731514373327774967, guid: 5e36da27e2f6fdc41998de2163db9841,
+        type: 3}
+      propertyPath: _canvasWin
+      value: 
+      objectReference: {fileID: 3111250564680969998}
+    - target: {fileID: 2731514373327774967, guid: 5e36da27e2f6fdc41998de2163db9841,
+        type: 3}
+      propertyPath: _canvasLose
+      value: 
+      objectReference: {fileID: 7316712873704198994}
     - target: {fileID: 2731514373327774967, guid: 5e36da27e2f6fdc41998de2163db9841,
         type: 3}
       propertyPath: _keyboardInput

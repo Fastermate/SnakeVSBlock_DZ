@@ -4845,6 +4845,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2731514373327774967, guid: 5e36da27e2f6fdc41998de2163db9841,
         type: 3}
+      propertyPath: _canvasWin
+      value: 
+      objectReference: {fileID: 4743729424116140949}
+    - target: {fileID: 2731514373327774967, guid: 5e36da27e2f6fdc41998de2163db9841,
+        type: 3}
+      propertyPath: _canvasLose
+      value: 
+      objectReference: {fileID: 1113043005870356425}
+    - target: {fileID: 2731514373327774967, guid: 5e36da27e2f6fdc41998de2163db9841,
+        type: 3}
       propertyPath: _keyboardInput
       value: 
       objectReference: {fileID: 2969438056494036442}
@@ -5625,8 +5635,25 @@ PrefabInstance:
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 2969438056494036440}
+    - target: {fileID: 5548354655288554242, guid: 9d7c7649384df054eb4706940560ebbb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d7c7649384df054eb4706940560ebbb, type: 3}
+--- !u!223 &1113043005870356425 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5548354655288554242, guid: 9d7c7649384df054eb4706940560ebbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4867799242866509003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &4743729424116140949 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 169159150028951390, guid: 9d7c7649384df054eb4706940560ebbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4867799242866509003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4984385827007402464
 PrefabInstance:
   m_ObjectHideFlags: 0

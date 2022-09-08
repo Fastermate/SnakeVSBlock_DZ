@@ -7,7 +7,6 @@ public class ProgressBarUI : MonoBehaviour
     [SerializeField] private Image _uiFillImage;
     [SerializeField] public TMP_Text _uiStartText;
     [SerializeField] public TMP_Text _uiFinishText;
-
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Transform _finishTransform;
 
@@ -29,8 +28,8 @@ public class ProgressBarUI : MonoBehaviour
 
     public void SetLevelTexts (int level)
     {
-        _uiStartText.text = level.ToString();
-        _uiFinishText.text = (level+1).ToString();
+        _uiStartText.text = (level+1).ToString();
+        _uiFinishText.text = (level+2).ToString();
     }
     
     private float GetDistance()

@@ -7,6 +7,7 @@ public class SaveLoadSystem : MonoBehaviour
     public void SaveLevel(int levelIndex)
     {
         PlayerPrefs.SetInt(LevelIndexKey, levelIndex);
+        PlayerPrefs.Save();
     }
 
     public int GetLevelIndex()

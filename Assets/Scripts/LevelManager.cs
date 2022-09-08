@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
         _currentLevelIndex = _saveLoadSystem.GetLevelIndex();
         _currentLevelIndex %= _levelsList.Levels.Length;
 
+
     }
 
 
@@ -28,7 +29,7 @@ public class LevelManager : MonoBehaviour
 
     public void ButtonRestart()
     {
-        _saveLoadSystem.SaveLevel(_currentLevelIndex);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
@@ -36,9 +37,14 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         _currentLevelIndex++;
+        if( _currentLevelIndex > 2)
+        {
+            _currentLevelIndex = 0;
+        }
         _saveLoadSystem.SaveLevel(_currentLevelIndex);
+        Debug.Log(_currentLevelIndex.ToString());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        _canvas.enabled = false;
+        
     }
 
     

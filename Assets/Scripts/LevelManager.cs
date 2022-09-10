@@ -6,6 +6,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LevelList _levelsList;
     [SerializeField] private SaveLoadSystem _saveLoadSystem;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private AudioListener _audioListener;
     
     
 
@@ -24,6 +26,8 @@ public class LevelManager : MonoBehaviour
     {
         Instantiate(_levelsList.Levels[_currentLevelIndex]);
         _canvas.enabled = false;
+        _camera.enabled = false;
+        _audioListener.enabled = false;
     }
 
 

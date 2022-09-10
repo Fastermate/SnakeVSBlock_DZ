@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private GameController _controller;
     [SerializeField] private TextMeshPro _snakeScore;
-    
+    [SerializeField] private AudioSource _eatSound;
+    [SerializeField] private AudioSource _breakSound;
+    [SerializeField] private AudioSource _damageSound;
 
-    
+
 
     private void Start()
     {
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
 
     private void Damage()
     {
-        
+        _damageSound.Play();
         _tails.Remove(_tails[0]);
         Destroy(_segments[0]);
         _segments.Remove(_segments[0]);
@@ -77,7 +79,7 @@ public class Player : MonoBehaviour
         if (other.TryGetComponent(out Eat eat))
         {
             Destroy(eat.gameObject);
-
+            _eatSound.Play();
             GameObject segment = Instantiate(_segmentPrefab);
             _tails.Add(segment.transform);
             _segments.Add(segment);
@@ -103,6 +105,7 @@ public class Player : MonoBehaviour
                 }
                 if (cube.Value <= 0)
                 {
+                    _breakSound.Play();
                     Destroy(cube.gameObject);
                 }
                 StopAllCoroutines();
